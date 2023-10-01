@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 import django_heroku
+import dj_database_url
 import mimetypes
 from django.contrib import messages
 
@@ -130,14 +131,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'expenseswebsite', 'static'),
 ]
-# print(STATICFILES_DIRS)
-# STATIC_ROOT = os.path.join(BASE_DIR, 'expenseswebsite/static')
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'expenseswebsite/static')
+django_heroku.settings(locals())
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-django_heroku.settings(locals())
+
 
 mimetypes.add_type("text/css", ".css", True)
 
