@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-7vk3d4d%m8qb29n=%e7_)j0q^1=&-rhwzmelo*+r#^+l$0bspw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -83,13 +83,21 @@ WSGI_APPLICATION = 'expenseswebsite.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': os.environ.get('DB_NAME', 'incomeexpensesdb'),
+    #     'USER': os.environ.get('DB_USER', 'postgres'),
+    #     'PASSWORD': os.environ.get('DB_USER_PASSWORD', 'root'),
+    #     'HOST': os.environ.get('DB_HOST', 'localhost'),
+    #     'PORT': os.environ.get('DB_PORT', '5432'),
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', 'incomeexpensesdb'),
-        'USER': os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_USER_PASSWORD', 'root'),
-        'HOST': os.environ.get('DB_HOST', 'localhost'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "railway",
+        'USER': "postgres",
+        'PASSWORD': "ymfYWO8Eewm1YglnhR7d",
+        'HOST': "containers-us-west-116.railway.app",
+        'PORT': "7621",
     }
 }
 
@@ -128,11 +136,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'expenseswebsite', 'static'),
-]
-STATIC_ROOT = os.path.join(BASE_DIR, 'expenseswebsite/static')
-django_heroku.settings(locals())
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'expenseswebsite', 'static'),
+# ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+print(STATIC_ROOT)
+# django_heroku.settings(locals())
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
