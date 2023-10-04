@@ -17,7 +17,7 @@ def send_verification_mail(email, email_body):
     # Send the email using a separate thread
     email_thread = threading.Thread(target=send_mail, args=(subject, message, from_email, recipient_list))
     email_thread.start()
-
+    print(email)
     print("Email sent")
 
 def send_reset_link(email, email_body):
