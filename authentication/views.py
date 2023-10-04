@@ -78,7 +78,7 @@ class RegistrationView(View):
                 activate_url = 'http://'+domain+link
                 
                 email_body = 'Hi '+user.username + \
-                    'Please use this link to verify your account\n' +activate_url    
+                    ' Please use this link to verify your account\n' +activate_url    
                 send_verification_mail(email, email_body)
                 messages.success(request, 'Account successfully created')
                 return render(request, 'authentication/register.html', context)

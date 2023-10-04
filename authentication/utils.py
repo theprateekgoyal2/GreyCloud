@@ -13,7 +13,7 @@ def send_verification_mail(email, email_body):
     message = email_body
     from_email = settings.EMAIL_HOST_USER
     recipient_list = [email]
-
+    print(recipient_list)
     # Send the email using a separate thread
     email_thread = threading.Thread(target=send_mail, args=(subject, message, from_email, recipient_list))
     email_thread.start()
