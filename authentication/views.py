@@ -168,7 +168,7 @@ class RequestPasswordResetEmail(View):
             })
             reset_url = 'http://'+domain+link
             
-            email_body = 'Hi there, Please click the link below to reset your password \n'+ reset_url    
+            email_body = 'Hi there, Please click the link below to reset your password  \n'+ reset_url    
             send_reset_link(email, email_body)
             messages.success(request, 'reset link sent')
             return render(request, 'authentication/reset-password.html', context)
