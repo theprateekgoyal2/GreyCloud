@@ -8,17 +8,17 @@ import threading
 
 # Define an email sending function
 
-def send_verification_mail(email, email_body):
-    subject = "Activate your account"
-    message = email_body
-    from_email = settings.EMAIL_HOST_USER
-    recipient_list = [email]
-    print(recipient_list)
-    # Send the email using a separate thread
-    email_thread = threading.Thread(target=send_mail, args=(subject, message, from_email, recipient_list))
-    email_thread.start()
-    print(email)
-    print("Email sent")
+# def send_verification_mail(email, email_body):
+#     subject = "Activate your account"
+#     message = email_body
+#     from_email = settings.EMAIL_HOST_USER
+#     recipient_list = [email]
+#     print(recipient_list)
+#     # Send the email using a separate thread
+#     email_thread = threading.Thread(target=send_mail, args=(subject, message, from_email, recipient_list))
+#     email_thread.start()
+#     print(email)
+#     print("Email sent")
 
 def send_reset_link(email, email_body):
     subject = "Password reset instructions"
@@ -33,14 +33,14 @@ def send_reset_link(email, email_body):
     print("Email sent")
 
 
-# def send_verification_mail(email, email_body):
-#     subject = "Activate your account"
-#     message = email_body
-#     print("sending email")
-#     from_email = settings.EMAIL_HOST_USER
-#     recipient_list = [email]
-#     send_mail(subject, message, from_email, recipient_list, fail_silently=False)
-#     print("email sent")
+def send_verification_mail(email, email_body):
+    subject = "Activate your account"
+    message = email_body
+    print("sending email")
+    from_email = settings.EMAIL_HOST_USER
+    recipient_list = [email]
+    send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+    print("email sent")
 
 # def send_reset_link(email, email_body):
 #     subject = "Password reset instructions"
